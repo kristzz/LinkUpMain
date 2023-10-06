@@ -32,7 +32,7 @@ const routes = [
         component: () => import('@/views/NavBarViews/Notifications.vue')
       },
       {
-        path: '/profile/:id',
+        path: '/profile', /* /:id */
         name: 'profile',
         component: () => import('@/views/NavBarViews/Profile.vue')
       },
