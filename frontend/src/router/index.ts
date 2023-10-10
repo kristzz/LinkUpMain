@@ -12,29 +12,29 @@ const routes = [
         component: () => import('@/views/Home.vue'),
       },
       {
-        path: '/connections',
-        name: 'connections',
-        component: () => import('@/views/NavBarViews/Connections.vue')
+        path: '/login',
+        name: 'login',
+        component: () => import('@/views/UserRegLog/Login.vue'),
       },
       {
-        path: '/jobs',
-        name: 'jobs',
-        component: () => import('@/views/NavBarViews/Jobs.vue')
+        path: '/register',
+        name: 'register',
+        component: () => import('@/views/UserRegLog/Register.vue'),
       },
       {
-        path: '/messages',
-        name: 'messages',
-        component: () => import('@/views/NavBarViews/Messages.vue')
+        path: '/connections', name: 'connections', component: () => import('@/views/NavBarViews/Connections.vue')
       },
       {
-        path: '/notifications',
-        name: 'notifications',
-        component: () => import('@/views/NavBarViews/Notifications.vue')
+        path: '/jobs', name: 'jobs', component: () => import('@/views/NavBarViews/Jobs.vue')
       },
       {
-        path: '/profile', /* /:id */
-        name: 'profile',
-        component: () => import('@/views/NavBarViews/Profile.vue')
+        path: '/messages', name: 'messages', component: () => import('@/views/NavBarViews/Messages.vue')
+      },
+      {
+        path: '/notifications', name: 'notifications', component: () => import('@/views/NavBarViews/Notifications.vue')
+      },
+      {
+        path: '/profile', /* /:id */ name: 'profile', component: () => import('@/views/NavBarViews/Profile.vue')
       },
     ],
   },

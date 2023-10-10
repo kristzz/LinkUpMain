@@ -24,11 +24,13 @@ header {
     background: var(--secondary-color);
     color: var(--background-color);
 
-    height:6vh;
-    width:100vw;
+    position: sticky;
+    top: 0;
+    height:3.5rem;
+    width:100dvw;
     gap:2rem;
 
-    transition: 0.5s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 a{
@@ -37,7 +39,7 @@ a{
 }
 
 a:hover, p:hover{
-    transform: scale(1.04);
+    transform: scale(1.02);
 }
 
 </style>

@@ -11,13 +11,12 @@
 <style scoped>
     footer{
         bottom: 0;
-        height: 3vh;
+        height: 1.5rem;
         width:100%;
         background: var(--secondary-color);
         color: var(--background-color);
         display: flex;
         align-items: center;
         justify-content: center;
-        position: fixed;
     }
 </style>

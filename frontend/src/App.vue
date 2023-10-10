@@ -1,4 +1,4 @@
-<script lang>
+<script>
   import { defineComponent } from 'vue';
 
   import Header from '@/components/NavBar.vue';
