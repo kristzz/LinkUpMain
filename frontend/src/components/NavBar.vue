@@ -29,6 +29,7 @@ header {
     height:3.5rem;
     width:100dvw;
     gap:2rem;
+    z-index: 10;
 
     transition: 0.2s ease-in-out;
 }
