@@ -8,7 +8,6 @@
        <p><router-link :to="{ name: 'connections'}">Connections</router-link></p>
        <p><router-link :to="{ name: 'jobs'}">Jobs</router-link></p>
        <p><router-link :to="{ name: 'messages' }">Messages</router-link></p>
-       <p><router-link :to="{ name: 'notifications'}">Notifications</router-link></p>
        <p><router-link :to="{ name: 'profile'}">Profile</router-link></p>
     </header>
 </template>
