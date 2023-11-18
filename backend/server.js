@@ -33,42 +33,43 @@ app.post('/register', (req, res) => {
  const hashedPassword = bcrypt.hashSync(password, 10);
 
  pool.query('INSERT INTO users (email, pass) VALUES ($1, $2) RETURNING id', [email, hashedPassword], (error, results) => {
-  if (!error) {
-    res.status(201).send(`User added with ID: ${results.rows[0].id}`);
-  } else {
-    console.error('Error registering user:', error); // Log the error
-    res.status(500).send('Error registering user');
-  }
+ if (!error) {
+   res.status(201).send(`User added with ID: ${results.rows[0].id}`);
+ } else {
+   console.error('Error registering user:', error); // Log the error
+   res.status(500).send('Error registering user');
+ }
  });
 });
 
 app.post('/login', (req, res) => {
- const { email, password } = req.body;
-
- pool.query('SELECT * FROM users WHERE email = $1', [email], (error, results) => {
+  const { email, password } = req.body;
+ 
+  pool.query('SELECT * FROM users WHERE email = $1', [email], (error, results) => {
   if (error) {
     console.error(error);
     res.status(500).send('Error logging in user');
   } else if (results.rows.length > 0 && bcrypt.compareSync(password, results.rows[0].pass)) {
     // Generate a JWT
     const token = jwt.sign({ id: results.rows[0].id }, SECRET_KEY, { expiresIn: '1h' });
-
-    // Return the JWT in the response
-    res.status(200).send({ token });
+ 
+    // Return the JWT and user's ID in the response
+    res.status(200).send({ token, id: results.rows[0].id });
   } else {
     res.status(401).send('Incorrect email or password');
   }
+  });
  });
-});
+ 
 
 app.get('/verify', (req, res) => {
  const token = req.headers.authorization.split(' ')[1];
  jwt.verify(token, SECRET_KEY, (err, decoded) => {
-  if (err) {
-    res.status(401).send('Invalid token');
-  } else {
-    res.status(200).send('Token is valid');
-  }
+ if (err) {
+   res.status(401).send('Invalid token');
+ } else {
+   res.status(200).send('Token is valid');
+ }
  });
 });
 
