@@ -9,6 +9,7 @@
             <div id="name-surname-age"></div>
             <div id="location"></div>
             <div id="contact-details"></div>
+            <div id="short-desc"></div>
         </div>
 
         <div id="education">
