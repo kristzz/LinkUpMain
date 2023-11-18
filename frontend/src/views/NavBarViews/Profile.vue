@@ -19,7 +19,7 @@
         </div>
 
         <div id="skills">
-            <div id="it-skills"></div>
+            <div id="all-skills"></div>
         </div>
 
         <div id="experience">
