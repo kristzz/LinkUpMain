@@ -9,6 +9,7 @@
        <p><router-link :to="{ name: 'jobs'}">Jobs</router-link></p>
        <p><router-link :to="{ name: 'messages' }">Messages</router-link></p>
        <p><router-link :to="{ name: 'profile'}">Profile</router-link></p>
+       <p><router-link :to="{name:'settings'}">Settings</router-link></p>
     </header>
 </template>
 

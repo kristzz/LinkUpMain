@@ -1,5 +1,6 @@
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
+
 
 const routes = [
   {
@@ -36,6 +37,9 @@ const routes = [
       {
         path: '/profile', /* /:id */ name: 'profile', component: () => import('@/views/NavBarViews/Profile.vue')
       },
+      {
+        path: '/settings', name: 'settings', component: () => import('@/views/NavBarViews/Settings.vue')
+      },
     ],
   },
 ]
@@ -44,5 +48,14 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.path === '/') {
+    next({ path: '/login' })
+  } else {
+    next()
+  }
+ })
+ 
 
 export default router

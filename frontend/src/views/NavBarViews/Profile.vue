@@ -4,6 +4,7 @@
 
 <template>
     <div id="container">
+        
         <div id="person">
             <div id="img"></div>
             <div id="name-surname-age"></div>
@@ -11,7 +12,7 @@
             <div id="contact-details"></div>
             <div id="short-desc"></div>
         </div>
-
+        
         <div id="education">
             <div id="schools"></div>
             <div id="courses"></div>
@@ -38,5 +39,8 @@
 <style scoped>
     template{
         background: var(--background-color);
+    }
+    router-link{
+        top: 10rem;
     }
 </style>

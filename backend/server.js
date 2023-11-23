@@ -4,12 +4,18 @@ const cors = require('cors');
 var bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const session = require('express-session');
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true
+ }));
 
 // Create a new pool for the database
 const pool = new Pool({
@@ -44,19 +50,22 @@ app.post('/register', (req, res) => {
 
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
- 
+  
   pool.query('SELECT * FROM users WHERE email = $1', [email], (error, results) => {
   if (error) {
-    console.error(error);
-    res.status(500).send('Error logging in user');
+  console.error(error);
+  res.status(500).send('Error logging in user');
   } else if (results.rows.length > 0 && bcrypt.compareSync(password, results.rows[0].pass)) {
-    // Generate a JWT
-    const token = jwt.sign({ id: results.rows[0].id }, SECRET_KEY, { expiresIn: '1h' });
- 
-    // Return the JWT and user's ID in the response
-    res.status(200).send({ token, id: results.rows[0].id });
+  // Generate a JWT
+  const token = jwt.sign({ id: results.rows[0].id }, SECRET_KEY, { expiresIn: '1h' });
+  // Save the user ID in the session
+  req.session.userId = results.rows[0].id;
+  // Log the user ID to the console
+  console.log(`User ID: ${req.session.userId}`);
+  // Return the JWT and user's ID in the response
+  res.status(200).send({ token, id: results.rows[0].id });
   } else {
-    res.status(401).send('Incorrect email or password');
+  res.status(401).send('Incorrect email or password');
   }
   });
  });
@@ -71,6 +80,20 @@ app.get('/verify', (req, res) => {
    res.status(200).send('Token is valid');
  }
  });
+});
+
+app.put('/change-password', (req, res) => {
+  const { id, newPassword } = req.body;
+  const hashedPassword = bcrypt.hashSync(newPassword, 10);
+
+  pool.query('UPDATE users SET pass = $1 WHERE id = $2', [hashedPassword, id], (error, results) => {
+    if (!error) {
+      res.status(200).send(`User modified with ID: ${id}`);
+    } else {
+      console.error('Error changing password:', error);
+      res.status(500).send('Error changing password');
+    }
+  });
 });
 
 app.listen(5050, () => {
