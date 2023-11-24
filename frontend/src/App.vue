@@ -1,7 +1,7 @@
 <script>
 
   import Header from '@/components/NavBar.vue';
-
+  
   export default{
     name: 'app',
     components: {
@@ -11,7 +11,7 @@
 </script>
 
 <template>
-  <myheader v-if="$route.path !== '/register' && $route.path !== '/login'" />
+  <myheader v-if="$route.path !== '/register' && $route.path !== '/registerc' && $route.path !== '/login'" />
   <RouterView />
 </template>
 

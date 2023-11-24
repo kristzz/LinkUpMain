@@ -23,6 +23,11 @@ const routes = [
         component: () => import('@/views/UserRegLog/Register.vue'),
       },
       {
+        path: '/registerc',
+        name: 'registerc',
+        component: () => import('@/views/UserRegLog/RegisterC.vue'),
+      },
+      {
         path: '/connections', name: 'connections', component: () => import('@/views/NavBarViews/Connections.vue')
       },
       {
@@ -30,9 +35,6 @@ const routes = [
       },
       {
         path: '/messages', name: 'messages', component: () => import('@/views/NavBarViews/Messages.vue')
-      },
-      {
-        path: '/notifications', name: 'notifications', component: () => import('@/views/NavBarViews/Notifications.vue')
       },
       {
         path: '/profile', /* /:id */ name: 'profile', component: () => import('@/views/NavBarViews/Profile.vue')

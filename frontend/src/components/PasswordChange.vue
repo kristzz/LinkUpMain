@@ -40,4 +40,7 @@ export default {
 ::placeholder{
       color: var(--background-color);
     }
+  input{
+    color: var(--background-color);
+  }
 </style>

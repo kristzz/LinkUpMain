@@ -6,11 +6,12 @@
     <div id="container">
         
         <div id="person">
-            <div id="img"></div>
-            <div id="name-surname-age"></div>
-            <div id="location"></div>
-            <div id="contact-details"></div>
-            <div id="short-desc"></div>
+            <div id="img"><img src="https://avatars.githubusercontent.com/u/62307779?v=4"></div>
+            <div id="name-surname">Krists Emils</div>
+            <div id="age">Age: 18</div>
+            <div id="location">City: Dobele</div>
+            <a id="contact-details" href="https://www.linkedin.com/in/krists-em%C4%ABls-gabrielis-2a824b243/">LinkedIn</a>
+            <div id="short-desc">Vue js mainist</div>
         </div>
         
         <div id="education">
@@ -40,7 +41,6 @@
     template{
         background: var(--background-color);
     }
-    router-link{
-        top: 10rem;
-    }
+
+    
 </style>

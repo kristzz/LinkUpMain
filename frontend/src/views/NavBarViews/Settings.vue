@@ -21,15 +21,12 @@
     data() {
       return {
         showPasswordChange: false,
-        // Replace with the actual user ID
         userId: 1
       }
     },
     methods: {
       logout() {
-        // Remove the token from local storage
         localStorage.removeItem('token');
-        // Redirect the user to the login screen
         this.$router.push('/login');
       },
       togglePasswordChange() {
@@ -37,7 +34,6 @@
       }
     },
     mounted() {
-      // Add a click event listener to the button with id="Logout"
       const logoutButton = document.getElementById('Logout');
       logoutButton.addEventListener('click', this.logout);
     },
@@ -47,11 +43,11 @@
 
   <style scoped>
     #container{
-        height: 70%;
+        height: 80%;
         width: 70%;
         background: var(--secondary-color);
         position: absolute;
-        top: 15%;
+        top: 5%;
         left: 15%;
         display: flex;
         color: var(--background-color);

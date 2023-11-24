@@ -32,7 +32,7 @@ export default {
         <h5 class="weight-regular">Register to never miss an opportunity for your dream job</h5>
         <input id="email" class="input-window" type="email" placeholder="youremail@example.com" v-model="email">
         <input id="pass" class="input-window" type="password" placeholder="Password" v-model="password">
-        <router-link :to="{ name:'login' }" id="reg-btn" @click.prevent="register">Register</router-link>
+        <router-link :to="{ name:'registerc' }" id="reg-btn" @click.prevent="register">Register</router-link>
         <router-link :to="{ name:'login' }" id="redirect-btn">Have an account?&nbsp;<a id="zzz">Log In here!</a></router-link>
     </div>
   </main>
