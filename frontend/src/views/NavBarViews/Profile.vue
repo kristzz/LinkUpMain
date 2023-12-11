@@ -16,7 +16,6 @@
         
         <div id="education">
             <div id="schools"></div>
-            <div id="courses"></div>
             <div id="languages"></div>
         </div>
 
@@ -41,6 +40,4 @@
     template{
         background: var(--background-color);
     }
-
-    
 </style>
